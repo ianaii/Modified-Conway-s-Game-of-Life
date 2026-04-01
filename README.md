@@ -26,4 +26,6 @@ from: https://en.wikipedia.org/wiki/Conway's_Game_of_Life
 
 Run the game via
 
-``python3 main.py``
+```
+python3 main.py
+```
