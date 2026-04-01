@@ -1,6 +1,8 @@
 # Modified Conway's Game of Life
 A modified terminal-based implementation of Conway's Game of Life
+
 Made By: Ian
+
 License: MIT License
 
 ## Overview
