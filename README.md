@@ -23,3 +23,7 @@ from: https://en.wikipedia.org/wiki/Conway's_Game_of_Life
 ## Gameplay
 
 (I'll finish writing this soon)
+
+Run the game via
+
+``python3 main.py``
