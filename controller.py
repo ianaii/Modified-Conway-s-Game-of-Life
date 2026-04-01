@@ -54,8 +54,7 @@ class GameOfLifeController:
                         assert isinstance(dims,tuple)
                         m, n = dims
                         self.__model = GameOfLifeModel(grid = make_blank_grid(m=m, n=n), generation_count = 0)
-                        alive = True
-
+                        model = self.__model
 
                 case "e":
                     coords = view.ask_coords()
