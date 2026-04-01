@@ -25,7 +25,7 @@ class GameOfLifeModel:
 
         count = 0
         for dr, dc in dirs:
-            if is_in_bounds(grid=self.grid, r=r+dr, c=c+dc):
+            if is_in_bounds(grid=self.__grid, r=r+dr, c=c+dc):
                 cell = self.__grid[r+dr][c+dc]
                 if cell.cell_state is CellState.ALIVE:
                     count += 1
@@ -37,7 +37,7 @@ class GameOfLifeModel:
 
         count = 0
         for dr, dc in dirs:
-            if is_in_bounds(grid=self.grid, r=r+dr, c=c+dc):
+            if is_in_bounds(grid=self.__grid, r=r+dr, c=c+dc):
                 cell = self.__grid[r+dr][c+dc]
                 if cell.cell_state is CellState.DEAD:
                     count += 1
@@ -86,7 +86,7 @@ class GameOfLifeModel:
 
 # HELPER FUNCTIONS
 def is_in_bounds(grid: list[list[Cell]], r: int, c: int) -> bool:
-    return r in range(len(grid)) and c in range(len(grid))
+    return r in range(len(grid)) and c in range(len(grid[0]))
 
 def make_blank_grid(m: int, n: int) -> list[list[Cell]]:
     grid: list[list[Cell]] = list()
