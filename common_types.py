@@ -25,7 +25,7 @@ class AbstractCell(ABC):
 
 
 class Cell(AbstractCell):
-    def __init__(self, state: CellState):
+    def __init__(self, state: CellState):       
         self.__state = state
 
     def __str__(self) -> str:

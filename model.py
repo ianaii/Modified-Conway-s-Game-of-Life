@@ -50,8 +50,7 @@ class GameOfLifeModel:
     def update(self) -> bool:
         m, n = self.dimensions
 
-        old_grid = deepcopy(self.grid)
-        new_grid = deepcopy(self.grid)
+        new_grid = deepcopy(self.__grid)
 
         for i in range(m):
             for j in range(n):

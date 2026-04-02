@@ -10,7 +10,7 @@ RANKING = {
 
 class GameOfLifeView():
     def __process_input(self, user_input: str) -> bool | tuple[int,int]:
-        tup_str_answer = tuple(user_input.split())
+        tup_str_answer = tuple(user_input.strip().split())
         
         if len(tup_str_answer) == 2:
             try:
@@ -61,6 +61,8 @@ class GameOfLifeView():
         "e : Edit the Current Grid\n" \
         "g : Advance the Game by One Generation\n" \
         "r : Run the Game Automatically\n" \
+        "\n" \
+        "[WARNING] Running 'd' will reset the entire grid!" \
         )
 
     def ask_cmd(self) -> bool | str:

@@ -5,7 +5,9 @@ from model import GameOfLifeModel, make_blank_grid
 from view import GameOfLifeView
 
 class GameOfLifeController:
-    def __init__(self,  model: GameOfLifeModel | None = None, view: GameOfLifeView = GameOfLifeView()):
+    def __init__(self,  
+                model: GameOfLifeModel | None = None, 
+                view: GameOfLifeView = GameOfLifeView()):
         self.__model = model
         self.__view = view
     
@@ -56,19 +58,24 @@ class GameOfLifeController:
                         self.__model = GameOfLifeModel(grid = make_blank_grid(m=m, n=n), generation_count = 0)
                         model = self.__model
 
+
                 case "e":
-                    coords = view.ask_coords()
-
-                    if not coords:
-                        print("Please Input the Coordinates in the Valid Format.\n")
+                    asking_coords = True
+                    while asking_coords:
+                        view.show_generation_number(generation=model.generation_count)
+                        view.show_grid(grid=model.grid)
                         
-                    else:
-                        assert isinstance(coords,tuple)
-                        r, c = coords
+                        coords = view.ask_coords()
+                        
+                        if not coords:
+                            asking_coords = False
+                        else:
+                            assert isinstance(coords,tuple)
+                            r, c = coords
 
-                        changed = model.change_cell(r=r, c=c)
-                        if changed:
-                            alive = True
+                            changed = model.change_cell(r=r, c=c)
+                            if changed:
+                                alive = True
                     
                 case "g":
                     if alive:
@@ -87,6 +94,7 @@ class GameOfLifeController:
                         sleep(0.3)
 
                     asking_cmd = False
+
                 case _:
                     raise ValueError
 
